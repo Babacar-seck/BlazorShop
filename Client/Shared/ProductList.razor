@@ -28,12 +28,12 @@
 </ul>*@
 
 <div style="display:flex; justify-content:space-evenly; flex-wrap:wrap">
-@foreach (var product in ProductService.Products)
+@foreach (var product in CategoryId == null ? ProductService.Products  : ProductService.Products.Where(p => p.CategoryId == CategoryId))
 {
     <div class="card mb-4" style="width: 18rem;">
         <div>
         <a href="/product/@product.Id">
-            <img src="@product.Image" class="card-img-top" alt="@product.Title">
+            <img src="@product.Image" class="card-img-top" style="height:300px;" alt="@product.Title">
         </a>
         </div>
         <div class="card-body">
@@ -55,6 +55,8 @@
 
 
 @code {
+    [Parameter]
+    public int? CategoryId { get; set; } 
     protected override void OnInitialized()
     {
         ProductService.LoadProducts();

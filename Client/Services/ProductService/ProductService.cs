@@ -52,7 +52,7 @@ namespace BlazorAppShop.Client.Services.ProductService
                     IsPublic = true,
                     IsDeleted = false,
                     //Category = Category.Biography,
-                    CategoryId = 1,
+                    CategoryId = 3,
                     DateCreated = new DateTime(1947, 1, 1),
                     DateUpdated = DateTime.Now
                 },
@@ -67,7 +67,7 @@ namespace BlazorAppShop.Client.Services.ProductService
                     IsPublic = true,
                     IsDeleted = false,
                     //Category = Category.Biography,
-                    CategoryId = 1,
+                    CategoryId = 4,
                     DateCreated = new DateTime(1739, 1, 1),
                     DateUpdated = DateTime.Now
                 },
@@ -88,7 +88,7 @@ namespace BlazorAppShop.Client.Services.ProductService
                 },
                 new Product
                 {
-                    Id = 5,
+                    Id = 6,
                     Title = "Les Confessions de Saint-Augustin",
                     Description = "Autobiographie de Saint-Augustin",
                     Image = "https://via.placeholder.com/300x300",
@@ -97,13 +97,13 @@ namespace BlazorAppShop.Client.Services.ProductService
                     IsPublic = true,
                     IsDeleted = false,
                     //Category = Category.Biography,
-                    CategoryId = 1,
+                    CategoryId = 5,
                     DateCreated = new DateTime(397, 1, 1),
                     DateUpdated = DateTime.Now
                 },
                 new Product
                 {
-                    Id = 3,
+                    Id = 7,
                     Title = "Les Pensées",
                     Description = "Essai philosophique de Blaise Pascal",
                     Image = "https://via.placeholder.com/300x300",
