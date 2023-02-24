@@ -56,6 +56,10 @@ a, .btn-link {
 .validation-message {
     color: red;
 }
+.media {
+    display : flex;
+    justify-content: space-between;
+}
 
 .media-img {
     max-height: 200px;
