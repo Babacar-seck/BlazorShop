@@ -10,7 +10,7 @@ namespace BlazorAppShop.Client.Services.CategoryService
         {
             Categories = new List<Category>
             {
-                new Category { Id = 1, Name = "Biography", Icon = "biography", Url="biography"},
+                new Category { Id = 1, Name = "Biography", Icon = "book", Url="book"},
                 new Category { Id = 2, Name = "Science-Fiction", Icon = "science-fiction", Url="science-siction"},
                 new Category { Id = 3, Name = "Philosophy", Icon = "philosophy", Url="philosophy"},
                 new Category { Id = 4, Name = "Romance", Icon = "romance", Url="romance"},
