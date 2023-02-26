@@ -4,8 +4,9 @@ namespace BlazorAppShop.Client.Services.ProductService
 {
     public interface IProductService
     {
+        event Action OnChange;
         List<Product> Products { get; set; }
-
-        void LoadProducts();
+        Task LoadProducts(string categoryUrl = null);
+        Task<Product> GetProduct(int Id);
     }
 }

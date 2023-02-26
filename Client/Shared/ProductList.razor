@@ -1,4 +1,69 @@
 ﻿@inject IProductService ProductService;
+@implements IDisposable;
+
+
+<div style="display:flex; justify-content:space-evenly; flex-wrap:wrap">
+@*@foreach (var product in CategoryId == null ? ProductService.Products  : ProductService.Products.Where(p => p.CategoryId == CategoryId))*@
+@foreach (var product in ProductService.Products)
+{
+    <div class="card mb-4" style="width: 18rem;">
+        <div>
+        <a href="/product/@product.Id">
+            <img src="@product.Image" class="card-img-top" style="height:300px;" alt="@product.Title">
+        </a>
+        </div>
+        <div class="card-body">
+            <a href="/product/@product.Id">
+                <h5 class="card-title text-center">@product.Title</h5>
+            </a>
+            <p class="card-text text-center">@product.Description</p>
+            @if (product.OriginalPrice > product.Price)
+            {
+                <h6 class="text-muted original-price text-center">$@product.OriginalPrice</h6>
+            }
+            <h5 class="price text-center">
+                $@product.Price
+            </h5>
+        </div>
+    </div>
+}
+</div>
+
+
+@code {
+    //[Parameter]
+    //public int? CategoryId { get; set; } 
+
+    protected override void OnInitialized()
+    {
+        //await ProductService.LoadProducts();
+
+        ProductService.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        ProductService.OnChange -= StateHasChanged;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @*<ul class="list-unstyled">
@@ -27,38 +92,3 @@
     }
 </ul>*@
 
-<div style="display:flex; justify-content:space-evenly; flex-wrap:wrap">
-@foreach (var product in CategoryId == null ? ProductService.Products  : ProductService.Products.Where(p => p.CategoryId == CategoryId))
-{
-    <div class="card mb-4" style="width: 18rem;">
-        <div>
-        <a href="/product/@product.Id">
-            <img src="@product.Image" class="card-img-top" style="height:300px;" alt="@product.Title">
-        </a>
-        </div>
-        <div class="card-body">
-            <a href="/product/@product.Id">
-                <h5 class="card-title text-center">@product.Title</h5>
-            </a>
-            <p class="card-text text-center">@product.Description</p>
-            @if (product.OriginalPrice > product.Price)
-            {
-                <h6 class="text-muted original-price text-center">$@product.OriginalPrice</h6>
-            }
-            <h5 class="price text-center">
-                $@product.Price
-            </h5>
-        </div>
-    </div>
-}
-</div>
-
-
-@code {
-    [Parameter]
-    public int? CategoryId { get; set; } 
-    protected override void OnInitialized()
-    {
-        ProductService.LoadProducts();
-    }
-}
